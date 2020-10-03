@@ -1,5 +1,6 @@
 from storage import Storage
 
+
 def test_add():
     st = Storage({'a': 1, 'b': 2})
     key = 'c'
@@ -26,8 +27,21 @@ def test_add():
     assert value_after_add == value_before_add,\
            f"After adding an existing key {key}, value has changed from {value_before_add} to {value_after_add}"
 
+
 def test_remove():
-    pass
+    st = Storage({'a': 1, 'b': 2})
+    key = 'b'
+    val = st.remove(key)
+    assert val == 2, "Key {} is not in the dictionary".format(key)
+
+    key = 'b'
+    val = st.get(key)
+    assert val is None, "Value for an unexisting key is not None"
+
+    key = 'b'
+    val = st.remove(key)
+    assert val is None, "Value for an unexisting key is not None"
+
 
 def test_set():
     st = Storage({'a': 1, 'b': 2})
@@ -63,6 +77,7 @@ def test_set():
     assert res == False, "Key value wasn't set"
     assert val is None, "Value for an unexisting key is not None" 
 
+
 def test_get():
     st = Storage({'a': 1, 'b': 2})
     key = 'b'
@@ -72,11 +87,13 @@ def test_get():
     val = st.get(key)
     assert val is None, "Value for an unexisting key is not None"
 
+
 def run_tests():
     test_get()
     test_add()
     test_remove()
     test_set()
+
 
 if __name__ == "__main__":
     run_tests()

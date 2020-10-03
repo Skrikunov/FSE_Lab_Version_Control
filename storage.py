@@ -12,8 +12,8 @@ class Storage:
         else:
             return None
 
-    def remove(self):
-        pass
+    def remove(self, key):
+        return self.data.pop(key, None)
 
     def set(self, key, value):
         if key in self.data:
@@ -26,4 +26,3 @@ class Storage:
         if key in self.data:
             raise Exception
         self.data[key] = value
-
