@@ -15,8 +15,14 @@ class Storage:
     def remove(self, key):
         return self.data.pop(key, None)
 
-    def set(self):
-        pass
+    def set(self, key, value):
+        if key in self.data:
+            self.data[key] = value
+            return True
+        else:
+            return False
 
-    def add(self):
-        pass
+    def add(self, key, value):
+        if key in self.data:
+            raise Exception
+        self.data[key] = value
