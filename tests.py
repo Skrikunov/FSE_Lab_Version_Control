@@ -10,6 +10,11 @@ def test_remove():
     key = 'b'
     val = st.remove(key)
     assert val == 2, "Key {} is not in the dictionary".format(key)
+
+    key = 'b'
+    val = st.get(key)
+    assert val is None, "Value for an unexisting key is not None"
+
     key = 'b'
     val = st.remove(key)
     assert val is None, "Value for an unexisting key is not None"
