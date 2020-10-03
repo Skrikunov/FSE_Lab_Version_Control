@@ -12,11 +12,11 @@ class Storage:
         else:
             return None
 
-    def remove(self):
-        pass
+    def remove(self, key):
+        return self.data.pop(key, None)
 
     def set(self):
         pass
-    
+
     def add(self):
         pass
